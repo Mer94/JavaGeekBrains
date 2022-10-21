@@ -1,0 +1,82 @@
+//Вычислить n-ое треугольного число(сумма чисел от 1 до n), n! (произведение чисел от 1 до n)
+import java.util.Scanner;
+
+/**
+ * TriangleNumbers
+ * get (n-th) Trinagle Number
+ */
+class TriangleNumbers {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Вычисляем n-ое треугольное число. Введите целое число n (от 1 до 46340):");
+        if (input.hasNextInt()) {
+            int n = input.nextInt();
+            if (n > 46340) {
+                System.out.println("Вы ввели слишком большое n (для этой программы)");
+            } else {
+                System.out.printf("n-ое треугольеон число = %d \n", CalcTriangeNum(n));
+            }
+        } else {
+            System.out.println("Вы ввели не целое число");
+        }
+
+        input.close();
+    }
+
+    static int CalcTriangeNum(int n) {
+        return (int)(n*(n+1)/2);
+    }
+
+}
+
+//Вывести все простые числа от 1 до 1000
+import java.util.Scanner;
+
+public class HomeJob {
+    public static void main(String[] args) {
+        System.out.println("Введите положительное число: ");
+        Scanner in = new Scanner(System.in);
+        int input = in.nextInt();
+        boolean b = true;
+        for (int P = 2; P <= input; P++) {
+            for (int i = 2; i < P; i++) {
+                if (P % i == 0) {
+                    b = false;
+                    break;
+                }
+            }
+            if (b) System.out.println(P);
+            else b = true;
+        }
+    }
+}
+
+//Реализовать простой калькулятор
+import java.util.Scanner;
+class Calculator {
+    public static void main(String[] args) {
+        double num1;
+        double num2;
+        double ans;
+        char op;
+        Scanner reader = new Scanner(System.in);
+        System.out.print("Enter the first number: ");
+        num1 = reader.nextDouble();
+        System.out.print("Enter an operator (+, -, *, /): ");
+        op = reader.next().charAt(0);
+        System.out.print("Enter the second number: ");
+        num2 = reader.nextDouble();
+        switch (op) {
+            case '+' -> ans = num1 + num2;
+            case '-' -> ans = num1 - num2;
+            case '*' -> ans = num1 * num2;
+            case '/' -> ans = num1 / num2;
+            default -> {
+                System.out.printf("Error! Enter correct operator");
+                return;
+            }
+        }
+        System.out.print("\nThe result is given as follows:\n");
+        System.out.printf(num1 + " " + op + " " + num2 + " = " + ans);
+    }
+}
